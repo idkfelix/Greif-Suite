@@ -1,0 +1,1 @@
+python -m PyInstaller .\src\main.py --onefile --windowed --collect-data sv_ttk --icon=.\media\icon.ico --name="Greif Suite"

@@ -108,8 +108,9 @@ button5.pack(pady=10, padx=10, ipadx=10)
 button6 = ttk.Button(tab3, text="Stop Queue", command=lambda: Party.LeaveMatchmaking, width=20)
 button6.pack(pady=10, padx=10, ipadx=10)
 
+button6 = ttk.Button(tab3, text="Counter", command=threading.Thread(target=Tools.Counter()).start, width=20)
+button6.pack(pady=10, padx=10, ipadx=10)
+
 
 sv_ttk.set_theme("dark")
 window.mainloop()
-
-

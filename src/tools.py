@@ -5,9 +5,12 @@ from time import sleep
 class Tools():
 
     def Spammer(count, text, cid):
-
         for i in range (0,count):
             Chat.Message(cid, text)
+
+    def Counter():
+        for i in range (0,999):
+            Chat.Message(Chat.getGameCid(), str(i))
 
     def Instalock(AgentID):
         Match.AgentLock(Get.PreMatchID(), AgentID)
@@ -16,5 +19,5 @@ class Tools():
         preMatchID = Get.PreMatchID()
         while True:
             for Agent in AgentList:
-                Match.AgentSelect(preMatchID, Agent)
+                Match.AgentSelect(preMatchID(), Agent)
                 sleep(0.1)
