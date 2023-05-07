@@ -6,6 +6,7 @@ from tkinter import ttk
 import sv_ttk
 
 import threading
+import random
 
 # Create config if it dosent exist
 if not os.path.exists(os.getenv("LOCALAPPDATA")+"\GreifSuite\config.yaml"):
@@ -67,7 +68,7 @@ def clickSpam():
         cid = Chat.getGameCid()
     Tools.Spammer((int(1+count)), msg, cid)
 
-b1 = ttk.Button(tab1, text="Spam", width=20, command=threading.Thread(target=clickSpam).start)
+b1 = ttk.Button(tab1, text="Spam", width=20, command=lambda: threading.Thread(target=clickSpam, daemon=True).start())
 b1.pack(pady=10, padx=10, ipadx=10)
 
 ### PREGAME ###
@@ -79,14 +80,14 @@ l2 = ttk.Label(tab2,font=('Helvetica', 12, 'bold'), text="PreGame")
 l2.pack(pady=10)
 
 # Game Dodge
-b2 = ttk.Button(tab2, text="Dodge", command=lambda: Match.Dodge(Get.PreMatchID()), width=20)
+b2 = ttk.Button(tab2, text="Dodge", command=lambda: threading.Thread(target=Match.Dodge(Get.PreMatchID()),daemon=True).start(), width=20)
 b2.pack(pady=10, padx=10, ipadx=10)
 
 # Wheel of Fortune
 def clickWheel():
     Tools.WheelOfFortune(Get.AgentIDs())
 
-b4 = ttk.Button(tab2, text="Wheel Of Fortune", command=threading.Thread(target=clickWheel).start, width=20)
+b4 = ttk.Button(tab2, text="Wheel Of Fortune", command=lambda: threading.Thread(target=clickWheel, daemon=True).start(), width=20)
 b4.pack(pady=10, padx=10, ipadx=10)
 
 # Instalock
@@ -99,7 +100,7 @@ d1 = ttk.OptionMenu(tab2, dv1, *dagents,)
 d1.config(width=20)
 d1.pack()
 
-b3 = ttk.Button(tab2, text="set", command=lambda: Tools.Instalock(dagents[dv1.get()]), width=20)
+b3 = ttk.Button(tab2, text="set", command=lambda: threading.Thread(target=Tools.Instalock(dagents[dv1.get()]),daemon=True).start(), width=20)
 b3.pack(pady=10, padx=10, ipadx=10)
 
 ### TAB 3 ###
@@ -110,14 +111,11 @@ notebook.add(tab3, text="Misc")
 l4 = ttk.Label(tab3,font=('Helvetica', 12, 'bold'), text="Misc")
 l4.pack(pady=10)
 
-b5 = ttk.Button(tab3, text="Start Custom Game", command=lambda: Party.StartCustom(), width=20)
+b5 = ttk.Button(tab3, text="Start Custom Game", command=lambda: threading.Thread(target=Party.StartCustom(),daemon=True).start(), width=20)
 b5.pack(pady=10, padx=10, ipadx=10)
 
-b6 = ttk.Button(tab3, text="Stop Queue", command=lambda: Party.LeaveMatchmaking, width=20)
+b6 = ttk.Button(tab3, text="Stop Queue", command=lambda: threading.Thread(target=Party.LeaveMatchmaking,daemon=True).start(), width=20)
 b6.pack(pady=10, padx=10, ipadx=10)
-
-# button6 = ttk.Button(tab3, text="Counter", command=threading.Thread(target=Tools.Counter()).start, width=20)
-# button6.pack(pady=10, padx=10, ipadx=10)
 
 ### Tab 4 ###
 
@@ -142,7 +140,7 @@ d3 = ttk.OptionMenu(tab4, dv3, *Shards,)
 d3.config(width=20)
 d3.pack()
 
-b7 = ttk.Button(tab4, text="Set Config", command=lambda: Tools.SetConfig(dv2.get(),dv3.get()), width=20)
+b7 = ttk.Button(tab4, text="Set Config", command=lambda: threading.Thread(target=Tools.SetConfig(dv2.get(),dv3.get()),daemon=True).start(), width=20)
 b7.pack(pady=10, padx=10, ipadx=10)
 
 sv_ttk.set_theme("dark")

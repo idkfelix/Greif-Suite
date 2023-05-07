@@ -20,10 +20,6 @@ class Tools():
         for i in range (0,count):
             Chat.Message(cid, text)
 
-    def Counter():
-        for i in range (0,999):
-            Chat.Message(Chat.getGameCid(), str(i))
-
     def Instalock(AgentID):
         Match.AgentLock(Get.PreMatchID(), AgentID)
 
