@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/Airbnb-%23ff5a5f.svg?style=for-the-badge&logo=Airbnb&logoColor=white" alt="Airbnb Badge">
 </div>
  
- 
+---
 The Valorant Grief Suite is a collection of tools that allow you to grief your lobbies in a variety of ways. Whether you want to spam chat, dodge games without using the alt+f4 shortcut, or instalock your desired agent before the selection screen even appears, this suite has got you covered.
 
 #### Features:
