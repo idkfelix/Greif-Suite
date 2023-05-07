@@ -2,6 +2,7 @@ import requests
 import json
 import os
 import base64
+import yaml
 
 # Stop local unsecured warning
 from urllib3 import disable_warnings, exceptions
@@ -23,6 +24,12 @@ def GenPass64(passwd):
     base64Bytes = base64.b64encode(passBytes)
     base64Pass = base64Bytes.decode('ascii')
     return base64Pass
+
+def GetRegionShardString():
+    with open(os.getenv("LOCALAPPDATA")+"\GreifSuite\config.yaml", "r") as f:
+        conf = yaml.load(f, Loader=yaml.FullLoader)
+        RegionShardString = conf["region"]+"-1."+conf["shard"]
+        return RegionShardString
 
 class Get():
 
@@ -61,7 +68,7 @@ class Get():
         return loaded["sub"]
 
     def MatchID():
-        url = f"https://glz-ap-1.ap.a.pvp.net/core-game/v1/players/{puuid}"
+        url = f"https://glz-{rsString}.a.pvp.net/core-game/v1/players/{puuid}"
 
         headers = {
             "Authorization": f"Bearer {accessToken}",
@@ -85,8 +92,8 @@ class Get():
         loaded = json.loads(response.text)
         return loaded["MatchID"]
     
-    def PartyID(clientVersion):
-        url = f"https://glz-ap-1.ap.a.pvp.net/parties/v1/players/{puuid}"
+    def PartyID():
+        url = f"https://glz-{rsString}.a.pvp.net/parties/v1/players/{puuid}"
 
         headers = {
             "Authorization": f"Bearer {accessToken}",
@@ -185,7 +192,7 @@ class Match():
         requests.request("POST", url, headers=headers, verify=False)
 
     def Dodge(preMatchID):
-        url = f"https://glz-ap-1.ap.a.pvp.net/pregame/v1/matches/{preMatchID}/quit"
+        url = f"https://glz-{rsString}.a.pvp.net/pregame/v1/matches/{preMatchID}/quit"
 
         headers = {
             "Authorization": f"Bearer {accessToken}",
@@ -195,7 +202,7 @@ class Match():
         requests.request("POST", url, headers=headers, verify=False)
 
     def AgentSelect(preMatchID, agentID):
-        url = f"https://glz-ap-1.ap.a.pvp.net/pregame/v1/matches/{preMatchID}/select/{agentID}"
+        url = f"https://glz-{rsString}.a.pvp.net/pregame/v1/matches/{preMatchID}/select/{agentID}"
 
         headers = {
             "Authorization": f"Bearer {accessToken}",
@@ -205,7 +212,7 @@ class Match():
         requests.request("POST", url, headers=headers, verify=False)
 
     def AgentLock(preMatchID, agentID):
-        url = f"https://glz-ap-1.ap.a.pvp.net/pregame/v1/matches/{preMatchID}/lock/{agentID}"
+        url = f"https://glz-{rsString}.a.pvp.net/pregame/v1/matches/{preMatchID}/lock/{agentID}"
 
         headers = {
             "Authorization": f"Bearer {accessToken}",
@@ -217,8 +224,8 @@ class Match():
 class Party():
 
     def StartCustom():
-        partyID = Get.PartyID(clientVersion)
-        url = f"https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/{partyID}/startcustomgame"
+        partyID = Get.PartyID()
+        url = f"https://glz-{rsString}.a.pvp.net/parties/v1/parties/{partyID}/startcustomgame"
 
         headers = {
             "Authorization": f"Bearer {accessToken}",
@@ -229,8 +236,8 @@ class Party():
         requests.request("POST", url, headers=headers, verify=False)
 
     def LeaveMatchmaking():
-        partyID = Get.PartyID(clientVersion)
-        url = f"https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/{partyID}/matchmaking/leave"
+        partyID = Get.PartyID()
+        url = f"https://glz-{rsString}.a.pvp.net/parties/v1/parties/{partyID}/matchmaking/leave"
 
         headers = {
             "Authorization": f"Bearer {accessToken}",
@@ -241,6 +248,8 @@ class Party():
 
 rport = Lockfile.port
 passwd = GenPass64(Lockfile.passwd)
+
+rsString = GetRegionShardString()
 
 accessToken = Get.AccessToken(rport, passwd)
 eToken = Get.EToken(rport, passwd)
