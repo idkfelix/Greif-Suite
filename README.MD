@@ -9,6 +9,7 @@
 </div>
  
 ---
+#### Description
 The Valorant Grief Suite is a collection of tools that allow you to grief your lobbies in a variety of ways. Whether you want to spam chat, dodge games without using the alt+f4 shortcut, or instalock your desired agent before the selection screen even appears, this suite has got you covered.
 
 #### Features:
@@ -23,10 +24,10 @@ Here are some of the features included in the Valorant Grief Suite:
 
 - **Wheel of Fortune:** Feeling lucky? Let fate decide which agent you'll play as with this random agent selection tool.
 
+- **Anti Queue**: Never start queuing for a match again with Anti Queue
+
 - **And much more!**
 
 #### Disclaimer:
 
 Please keep in mind that while the Valorant Grief Suite should not be bannable as it only uses the local API, we cannot guarantee that using this tool won't result in repercussions from Riot Games. Use this suite at your own risk and discretion, and avoid any actions that a Riot dev would frown upon. We are not responsible for any consequences that may arise from using this tool.
-
-Enjoy the Valorant Grief Suite!

@@ -2,3 +2,4 @@
 *dist/
 *pycache*
 *.spec
+*.obsidian
