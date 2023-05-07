@@ -7,7 +7,8 @@
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python Badge">
   <img src="https://img.shields.io/badge/Airbnb-%23ff5a5f.svg?style=for-the-badge&logo=Airbnb&logoColor=white" alt="Airbnb Badge">
 </div>
-
+ 
+ 
 The Valorant Grief Suite is a collection of tools that allow you to grief your lobbies in a variety of ways. Whether you want to spam chat, dodge games without using the alt+f4 shortcut, or instalock your desired agent before the selection screen even appears, this suite has got you covered.
 
 #### Features:
@@ -24,7 +25,7 @@ Here are some of the features included in the Valorant Grief Suite:
 
 - **And much more!**
 
-#### Note:
+#### Disclaimer:
 
 Please keep in mind that while the Valorant Grief Suite should not be bannable as it only uses the local API, we cannot guarantee that using this tool won't result in repercussions from Riot Games. Use this suite at your own risk and discretion, and avoid any actions that a Riot dev would frown upon. We are not responsible for any consequences that may arise from using this tool.
 
