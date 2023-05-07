@@ -10,6 +10,7 @@
  
 ---
 #### Description
+
 The Valorant Grief Suite is a collection of tools that allow you to grief your lobbies in a variety of ways. Whether you want to spam chat, dodge games without using the alt+f4 shortcut, or instalock your desired agent before the selection screen even appears, this suite has got you covered.
 
 #### Features:
@@ -27,6 +28,31 @@ Here are some of the features included in the Valorant Grief Suite:
 - **Anti Queue**: Never start queuing for a match again with Anti Queue
 
 - **And much more!**
+
+#### Usage:
+
+- Download the Latest Release of Greif Suite from the [Releases Page](https://github.com/idkfelix/Greif-Suite/releases)
+
+- In Greif Suite Settings set your [Region](#Regions) and [Shard](#Shards), you may have to restart the program after setting.
+
+#### Regions:
+| Region ID | Region Name |
+| --- | ---|
+| na | North America |
+| latam | Latin America |
+| br | Brazil |
+| eu | Europe |
+| ap | Asia Pacific |
+| kr | Korea |
+
+#### Shards:
+| Shard ID | Region(s)|
+| --- | ---|
+| na | latam,br,na |
+| pbe | na |
+| eu | eu |
+| ap | ap |
+| kr | kr |
 
 #### Disclaimer:
 
